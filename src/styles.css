@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+.buttons{
+    @apply bg-teal-600 rounded-full shadow text-white text-center
+}
+
+.sectionScreen{
+    @apply md:min-h-screen px-32
+}
