@@ -1,1 +1,15 @@
-<p>projects works!</p>
+<div class="flex flex-row justify-between sectionScreen">
+  <div class="text-left w-1/4 flex flex-col items-start justify-center">
+    <h2 class="text-4xl uppercase tracking-wide text-slate-400">Proyectos</h2>
+  </div>
+  <div class="text-left w-3/4 grid grid-cols-2 items-start justify-center gap-10">
+    @for (project of projects; track project.title) {
+      <app-project-card
+        [images]="project.images"
+        [title]="project.title"
+        [description]="project.description"
+        [technologies]="project.technologies"
+      />
+    }
+  </div>
+</div>
