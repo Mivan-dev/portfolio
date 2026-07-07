@@ -1,3 +1,6 @@
 @for (img of images(); track img; let i = $index) {
   <span [class.bg-teal-600]="i === currentImage()" class="w-2 h-2 rounded-full bg-slate-500" (click)="goToImage(i)"></span>
 }
+<img [src]="images()[currentImage()]" alt="">
+<button (click)="prevImage()"><=</button>
+<button (click)="nextImage()">=></button>
