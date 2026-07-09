@@ -1,1 +1,7 @@
-<p>contact works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="">
+    <input type="text" formControlName="nombre" placeholder="Nombre Completo" class="">
+    <input type="text" formControlName="email" placeholder="ejemplo@email.com" class="">
+    <input type="text" formControlName="telefono" placeholder="3511234567" class="">
+    <input type="text" formControlName="mensaje" placeholder="Mensaje" class="">
+    <button type="submit">Enviar</button>
+</form>
