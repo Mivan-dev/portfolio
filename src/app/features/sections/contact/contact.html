@@ -1,7 +1,18 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="">
-    <input type="text" formControlName="nombre" placeholder="Nombre Completo" class="">
-    <input type="text" formControlName="email" placeholder="ejemplo@email.com" class="">
-    <input type="text" formControlName="telefono" placeholder="3511234567" class="">
-    <input type="text" formControlName="mensaje" placeholder="Mensaje" class="">
-    <button type="submit">Enviar</button>
-</form>
+<div class="flex flex-row justify-between sectionScreen">
+  <div class="text-left w-1/4 flex flex-col items-start justify-center">
+    <h2 class="text-4xl uppercase tracking-wide text-slate-400">Contacto</h2>
+  </div>
+  <div class="text-left w-3/4 flex flex-col justify-center gap-10">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="modalForm gap-4">
+      <div class="flex flex-row">
+        <div class="flex flex-col">
+          <input type="text" formControlName="nombre" placeholder="Nombre Completo" class="" />
+          <input type="text" formControlName="email" placeholder="ejemplo@email.com" class="" />
+          <input type="text" formControlName="telefono" placeholder="3511234567" class="" />
+        </div>
+        <input type="text" formControlName="mensaje" placeholder="Mensaje" class="" />
+      </div>
+      <button type="submit" class="rounded-lg cursor-pointer buttons">Enviar</button>
+    </form>
+  </div>
+</div>
