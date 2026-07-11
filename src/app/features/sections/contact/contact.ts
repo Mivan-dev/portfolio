@@ -13,11 +13,14 @@ export class Contact {
 
   form = this.fb.group({
     nombre: ["", Validators.required],
-    email: ["", Validators.required],
+    email: ["", [Validators.required, Validators.email]],
     telefono: ["", Validators.required],
     mensaje: ["", Validators.required],
   })
 
-  onSubmit(){}
+  onSubmit(){
+    console.log(this.form.value)
+    this.form.reset()
+  }
 
 }
