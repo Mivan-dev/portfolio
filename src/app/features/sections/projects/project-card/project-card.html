@@ -1,4 +1,4 @@
-<div class="border border-slate-700 rounded-xl overflow-hidden bg-slate-800/50 hover:border-slate-500 transition-colors">
+<div class="border border-slate-700 rounded-xl overflow-hidden bg-slate-800/50 hover:border-teal-600 transition-colors">
   <div class="relative">
     <img [src]="images()[currentImage()]" alt="" class="w-full h-64 object-cover" />
 
@@ -39,13 +39,15 @@
   </div>
 
   <div class="flex flex-col gap-3 p-5">
-    <h3 class="text-xl font-semibold text-white">{{ title() }}</h3>
+    <a href="" class="cursor-pointer">
+    <h3 class="text-xl font-semibold text-white ">{{ title() }}</h3>
     <p class="text-base text-slate-300">{{ description() }}</p>
 
     <div class="flex flex-row flex-wrap gap-3 pt-2">
       @for (tech of technologies(); track tech) {
-        <span class="text-sm text-slate-200 tagSkill">{{ tech }}</span>
+        <span class="text-sm text-slate-200 border border-slate-600 rounded-full px-4 py-1">{{ tech }}</span>
       }
     </div>
+    </a>
   </div>
 </div>
