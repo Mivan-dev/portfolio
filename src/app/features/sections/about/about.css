@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.alt{
+    @apply text-teal-600
+}
