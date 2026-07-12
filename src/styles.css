@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .buttons{
-    @apply bg-teal-600 rounded-full shadow text-white text-center
+    @apply bg-teal-600 rounded-full shadow text-white text-center hover:bg-teal-500
 }
 
 .sectionScreen{
