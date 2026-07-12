@@ -11,3 +11,10 @@
 .tagSkill{
     @apply border border-slate-600 rounded-full px-4 py-1 hover:border-teal-600 hover:text-teal-400
 }
+
+/* Bg dot grid */
+body {
+  background-color: #0f172a;
+  background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
