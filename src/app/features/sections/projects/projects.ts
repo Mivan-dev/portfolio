@@ -21,6 +21,12 @@ export class Projects {
     description: '...',
     images: ['assets/images/expenses-1.png', 'assets/images/expenses-2.png', 'assets/images/expenses-3.png'],
     technologies: ['Angular', 'Tailwind']
+  },
+  {
+    title: 'Otro Proyecto',
+    description: '...',
+    images: ['assets/images/exp-1.png', 'assets/images/exp-2.png', 'assets/images/exp-3.png'],
+    technologies: ['Angular', 'Tailwind']
   }
 ];
 
