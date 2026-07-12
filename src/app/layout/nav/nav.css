@@ -2,5 +2,5 @@
 @reference "tailwindcss";
 
 .hoverButtonNav{
-    @apply shadow hover:shadow-md hover:shadow-amber-200 rounded-lg
+    @apply shadow hover:shadow-md hover:shadow-teal-600 rounded-xl px-3
 }
