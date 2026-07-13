@@ -5,7 +5,7 @@
 }
 
 .sectionScreen{
-    @apply md:min-h-screen px-32
+    @apply py-16 md:min-h-screen px-6 md:px-32 md:py-0
 }
 
 .tagSkill{
