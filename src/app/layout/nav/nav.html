@@ -1,12 +1,30 @@
-<div class="fixed flex items-center justify-center w-full bg-slate-900 gap-x-20 py-2">
+<div class="fixed top-0 z-50 flex items-center justify-between md:justify-center w-full bg-slate-900 px-6 md:gap-x-20 py-2">
   <div class="flex items-center justify-center bg-teal-600 rounded-full w-12 h-12 border-2 border-white">
     <a href="#inicio" class="text-white text-center tracking-wide text-xl font-semibold">IM</a>
   </div>
-  <div class="flex flex-row text-white text-lg justify-center gap-4 cursor-pointer">
+
+  <button class="md:hidden" (click)="toggleMenu()">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <div class="hidden md:flex md:flex-row text-white text-lg justify-center gap-4 cursor-pointer">
     <a class="hoverButtonNav" href="#inicio">Inicio</a>
     <a class="hoverButtonNav" href="#sobre-mi">Sobre Mi</a>
     <a class="hoverButtonNav" href="#skills">Skills</a>
     <a class="hoverButtonNav" href="#proyectos">Proyectos</a>
     <a class="hoverButtonNav" href="#contacto">Contacto</a>
+  </div>
+
+  <div
+    class="md:hidden hidden flex-col absolute top-full left-0 w-full bg-slate-900 text-white text-lg items-center gap-4 py-4 cursor-pointer"
+    [class.!flex]="isMenuOpen()"
+  >
+    <a class="hoverButtonNav" href="#inicio" (click)="toggleMenu()">Inicio</a>
+    <a class="hoverButtonNav" href="#sobre-mi" (click)="toggleMenu()">Sobre Mi</a>
+    <a class="hoverButtonNav" href="#skills" (click)="toggleMenu()">Skills</a>
+    <a class="hoverButtonNav" href="#proyectos" (click)="toggleMenu()">Proyectos</a>
+    <a class="hoverButtonNav" href="#contacto" (click)="toggleMenu()">Contacto</a>
   </div>
 </div>

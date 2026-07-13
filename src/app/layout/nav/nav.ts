@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './nav.css',
 })
 export class Nav {
+  isMenuOpen = signal(false);
 
+  toggleMenu() {
+    this.isMenuOpen.update((open) => !open);
+  }
 }
