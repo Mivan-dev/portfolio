@@ -12,9 +12,9 @@ export class Projects {
   projects = [
   {
     title: 'Expenses Manager',
-    description: 'Aplicación personal para llevar gastos de tarjetas de crédito y servicios con guardado en LocalStorage. Proximamente con db propia en PostgreSQL y Nest.JS.',
+    description: 'Aplicación personal para llevar gastos de tarjetas de crédito y servicios con guardado en LocalStorage. Proximamente con db propia en PostgreSQL y NestJS.',
     images: ['images/expenses-1.png', 'images/expenses-2.png', 'images/expenses-3.png'],
-    technologies: ['Angular', 'Tailwind', 'Nest.JS', 'SQL'],
+    technologies: ['Angular', 'Tailwind', 'NestJS', 'SQL'],
     url: 'https://github.com/Mivan-dev/expenses-manager'
   },
   {
