@@ -1,8 +1,19 @@
-<div class="border border-slate-700 rounded-xl overflow-hidden bg-slate-800/50 hover:border-teal-600 transition-colors">
+<div
+  class="border border-slate-700 rounded-xl overflow-hidden bg-slate-800/50 hover:border-teal-600 transition-colors"
+>
   <div class="relative">
-    <img [src]="images()[currentImage()]" alt="" class="w-full h-64 object-cover" />
+    <!-- Aspecto 16:9 de images y usamos aspect-video -->
+    <img
+      [src]="images()[currentImage()]"
+      alt=""
+      class="w-full aspect-video object-cover brightness-75 saturate-75 cursor-pointer"
+      (click)="openModal()"
+    />
 
-    <button class="p-2 cursor-pointer absolute top-1/2 -translate-y-1/2 left-2" (click)="prevImage()">
+    <button
+      class="p-2 cursor-pointer absolute top-1/2 -translate-y-1/2 left-2"
+      (click)="prevImage()"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="w-5 h-5 text-white"
@@ -14,7 +25,10 @@
         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
       </svg>
     </button>
-    <button class="p-2 cursor-pointer absolute top-1/2 -translate-y-1/2 right-2" (click)="nextImage()">
+    <button
+      class="p-2 cursor-pointer absolute top-1/2 -translate-y-1/2 right-2"
+      (click)="nextImage()"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="w-5 h-5 text-white"
@@ -38,17 +52,73 @@
     </div>
   </div>
 
-  <div class="flex flex-col gap-3 p-5">
-    <!-- Agregar al array las URL del href -->
-    <a href="" class="cursor-pointer">
-    <h3 class="text-xl font-semibold text-white ">{{ title() }}</h3>
-    <p class="text-base text-slate-300">{{ description() }}</p>
+  @if (isModalOpen()) {
+    <div
+      class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+      (click)="closeModal()"
+    >
+      <button class="absolute top-4 right-4 text-white" (click)="closeModal()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-8 h-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
 
-    <div class="flex flex-row flex-wrap gap-3 pt-2">
-      @for (tech of technologies(); track tech) {
-        <span class="text-sm text-slate-200 border border-slate-600 rounded-full px-4 py-1">{{ tech }}</span>
-      }
+      <div class="relative max-w-4xl w-full" (click)="$event.stopPropagation()">
+        <img [src]="images()[currentImage()]" alt="" class="w-full rounded-lg" />
+
+        <button
+          class="p-2 absolute top-1/2 -translate-y-1/2 left-2 text-white"
+          (click)="prevImage()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          class="p-2 absolute top-1/2 -translate-y-1/2 right-2 text-white"
+          (click)="nextImage()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
     </div>
+  }
+
+  <div class="flex flex-col gap-3 p-5">
+    <a [href]="url()" target="_blank" class="cursor-pointer">
+      <h3 class="text-xl font-semibold text-white">{{ title() }}</h3>
+      <p class="text-base text-slate-300">{{ description() }}</p>
+
+      <div class="flex flex-row flex-wrap gap-3 pt-2">
+        @for (tech of technologies(); track tech) {
+          <span class="text-sm text-slate-200 border border-slate-600 rounded-full px-4 py-1">{{
+            tech
+          }}</span>
+        }
+      </div>
     </a>
   </div>
 </div>
