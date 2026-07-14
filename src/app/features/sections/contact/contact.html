@@ -1,6 +1,8 @@
 <div class="flex flex-col md:flex-row justify-between sectionScreen" id="contacto">
   <div class="text-left w-full md:w-1/4 flex flex-col items-start justify-center">
-    <h2 class="text-2xl md:text-4xl uppercase tracking-wide text-slate-400 py-2 md:py-0">Contacto</h2>
+    <h2 class="text-2xl md:text-4xl uppercase tracking-wide text-slate-400 py-2 md:py-0">
+      Contacto
+    </h2>
   </div>
   <div class="text-left w-full md:w-3/4 flex flex-col justify-center">
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="">
@@ -12,22 +14,70 @@
             placeholder="Nombre Completo"
             class="inputs"
           />
+          @if (form.get('nombre')?.invalid && form.get('nombre')?.touched) {
+            <p class="text-red-500 text-xs">
+              @if (form.get('nombre')?.errors?.['required']) {
+                El nombre es obligatorio.
+              }
+              @if (form.get('nombre')?.errors?.['minlength']) {
+                Mínimo 3 caracteres.
+              }
+            </p>
+          }
           <input
-            type="text"
+            type="email"
             formControlName="email"
             placeholder="ejemplo@email.com"
             class="inputs"
           />
+          @if (form.get('email')?.invalid && form.get('email')?.touched) {
+            <p class="text-red-500 text-xs">
+              @if (form.get('email')?.errors?.['required']) {
+                El email es obligatorio.
+              }
+              @if (form.get('email')?.errors?.['email']) {
+                El formato de email es incorrecto.
+              }
+            </p>
+          }
           <input type="text" formControlName="telefono" placeholder="3511234567" class="inputs" />
+          @if (form.get('telefono')?.invalid && form.get('telefono')?.touched) {
+            <p class="text-red-500 text-xs">
+              @if (form.get('telefono')?.errors?.['required']) {
+                El teléfono es obligatorio.
+              }
+              @if (form.get('telefono')?.errors?.['pattern']) {
+                La longitud del teléfono es incorrecta.
+              }
+            </p>
+          }
         </div>
         <textarea
           type="text"
           formControlName="mensaje"
-          placeholder="Mensaje"
+          placeholder="Mensaje - ¡Hola! me gustaría estar en contacto contigo."
           class="w-full border border-slate-600 rounded-xl px-4 py-2 text-white hover:border-teal-600 cursor-pointer"
         ></textarea>
+        @if (form.get('mensaje')?.invalid && form.get('mensaje')?.touched) {
+          <p class="text-red-500 text-xs">
+            @if (form.get('mensaje')?.errors?.['required']) {
+              Mensaje obligatorio.
+            }
+            @if (form.get('mensaje')?.errors?.['minlength']) {
+              Mínimo 10 caracteres.
+            }
+          </p>
+        }
       </div>
       <button type="submit" class="rounded-md cursor-pointer buttons px-6 py-2">Enviar</button>
+      @if (enviado()) {
+        <p class="text-teal-500 text-sm mt-3">¡Mensaje enviado! Te responderé a la brevedad.</p>
+      }
+      @if (error()) {
+        <p class="text-red-500 text-sm mt-3">
+          Hubo un error al enviar. Intentá de nuevo o escribime directo a mivan.dev@gmail.com.
+        </p>
+      }
     </form>
   </div>
 </div>
