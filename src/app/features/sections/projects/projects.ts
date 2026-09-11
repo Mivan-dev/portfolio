@@ -23,12 +23,12 @@ export class Projects {
       url: 'https://github.com/Mivan-dev/entrega1-ivan-mendoza',
     },
     {
-      title: 'Expenses Manager',
+      title: 'Trackio',
       description:
-        'Aplicación para llevar gastos de tarjetas de crédito y servicios con guardado en LocalStorage. En desarrollo DB con NestJS y PostgreSQL.',
+        'App fullstack de gestión de gastos: tarjetas, cuotas, servicios y vencimientos mensuales. Usuario de prueba: "usuario1@usuario1.com" password: "UserTest1." - mas info en el Readme.',
       images: ['images/expenses-1.png', 'images/expenses-2.png', 'images/expenses-3.png'],
-      technologies: ['Angular', 'Tailwind', 'NestJS', 'SQL'],
-      url: 'https://github.com/Mivan-dev/expenses-manager',
+      technologies: ['Angular', 'Tailwind', 'NestJS', 'Prisma', 'SQL'],
+      url: 'https://trackio-app.netlify.app/',
     },
     {
       title: 'Todo App',
